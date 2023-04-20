@@ -47,16 +47,12 @@ setup(
     packages=[
         'video_xblock',
     ],
-    dependency_links=[
-         # Replace dependency links with numbered versions when it's released on PyPI
-        'git+https://github.com/edx/xblock-utils.git@v1.0.5#egg=xblock-utils==1.0.5',
-    ],
     install_requires=[
         'le-pycaption==2.2.0a1',
-        'requests>=2.9.1,<3.0.0',
         'babelfish>=0.5.5,<0.6.0',
-        'XBlock==1.3.1',
-        'xblock-utils==2.1.1'
+        'requests',
+        'XBlock',
+        'xblock-utils'
     ],
     entry_points={
         'xblock.v1': [
