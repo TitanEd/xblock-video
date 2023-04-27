@@ -4,7 +4,6 @@ Video XBlock mixins geared toward specific subsets of functionality.
 import logging
 
 import requests
-from pycaption import detect_format, WebVTTWriter
 from webob import Response
 
 from xblock.core import XBlock
@@ -94,9 +93,13 @@ class TranscriptsMixin(XBlock):
             str: Transcripts converted into WebVTT format.
         """
         if caps:
-            reader = detect_format(caps)
-            if reader:
-                return WebVTTWriter().write(reader().read(caps))
+            try:
+                from pycaption import detect_format, WebVTTWriter
+                reader = detect_format(caps)
+                if reader:
+                    return WebVTTWriter().write(reader().read(caps))
+            except Exception as e:
+                return ''
         return ''
 
     @staticmethod

@@ -48,8 +48,7 @@ setup(
         'video_xblock',
     ],
     install_requires=[
-        'le-pycaption==2.2.0a1',
-        'babelfish>=0.5.5,<0.6.0',
+        'babelfish',
         'requests',
         'XBlock',
         'xblock-utils'
